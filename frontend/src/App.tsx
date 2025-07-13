@@ -1,48 +1,26 @@
-import { Anchor, Code, Divider, Highlight, Paper, SimpleGrid, Stack, Text } from '@mantine/core';
+import { Carousel } from '@mantine/carousel';
+import { Image, AspectRatio } from '@mantine/core';
 
-
-const DOCS_URL : string = "https://docs.inventree.org/en/latest/extend/plugins/ui/";
-
-
-// This is a test page for the AttachmentCarousel plugin.
-// This page is *not* part of the plugin itself, but is used to test the plugin.
 export default function App() {
 
+  const indicators = true
+  const loop = true
+  const imageUrls = [
+    'https://picsum.photos/1920/1080?random=1',
+    'https://picsum.photos/1920/1080?random=2',
+    'https://picsum.photos/1920/1080?random=3',
+    // Add more image URLs here. See https://picsum.photos/ for more information
+  ];
+
+  const slides = imageUrls.map((url) => (
+    <Carousel.Slide key={url}>
+      <Image src={url} />
+    </Carousel.Slide>
+  ));
+
   return (
-    <>
-    <Paper p='md' m='lg' shadow='md' withBorder>
-      <SimpleGrid cols={3}>
-        <Paper p='md' m='md' withBorder>
-        <Stack>
-      <Text size="lg" c='blue' >
-        AttachmentCarousel
-      </Text>
-      <Divider />
-      <Highlight highlight={['attachment-carousel']}>
-        This is a test page for the attachment-carousel plugin. 
-      </Highlight>
-        </Stack>
-        </Paper>
-        <Paper p='md' m='md' withBorder>
-        <Stack>
-          <Text size='lg' c='blue'>Building</Text>
-          <Divider />
-          <Text>To build the plugin code, run:</Text>
-          <Code>npm run build</Code>
-        </Stack>
-        </Paper>
-        <Paper p='md' m='md' withBorder>
-        <Stack>
-          <Text size='lg' c='blue'>Developer Documentation</Text>
-          <Divider />
-          <Text>Read the plugin developer documentation:</Text>
-          <Anchor href={DOCS_URL} target="_blank" rel="noopener noreferrer">
-            {DOCS_URL}
-          </Anchor>
-        </Stack>
-        </Paper>
-      </SimpleGrid>
-    </Paper>
-    </>
+    <AspectRatio ratio={1920 / 1080} >
+      <Carousel withIndicators={indicators} loop={loop}>{slides}</Carousel>
+    </AspectRatio>
   );
 }
