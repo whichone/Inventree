@@ -2,12 +2,13 @@
 
 from plugin import InvenTreePlugin
 
-from plugin.mixins import SettingsMixin, UserInterfaceMixin
+from plugin.mixins import SettingsMixin#, UserInterfaceMixin
 
 from . import PLUGIN_VERSION
 
 
-class AttachmentCarousel(SettingsMixin, UserInterfaceMixin, InvenTreePlugin):
+#class AttachmentCarousel(SettingsMixin, UserInterfaceMixin, InvenTreePlugin):
+class AttachmentCarousel(SettingsMixin, InvenTreePlugin):
 
     """AttachmentCarousel - custom InvenTree plugin."""
 
