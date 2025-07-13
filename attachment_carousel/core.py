@@ -51,27 +51,27 @@ class AttachmentCarousel(SettingsMixin, UserInterfaceMixin, InvenTreePlugin):
     # Ref: https://docs.inventree.org/en/latest/plugins/mixins/ui/
     
     # Custom UI panels
-    def get_ui_panels(self, request, context: dict, **kwargs):
-        """Return a list of custom panels to be rendered in the InvenTree user interface."""
+    # def get_ui_panels(self, request, context: dict, **kwargs):
+    #     """Return a list of custom panels to be rendered in the InvenTree user interface."""
 
-        panels = []
+    #     panels = []
 
-        # Only display this panel for the 'part' target
-        if context.get('target_model') == 'part':
-            panels.append({
-                'key': 'attachment-carousel-panel',
-                'title': 'Attachment Carousel',
-                'description': 'Custom panel description',
-                'icon': 'ti:mood-smile:outline',
-                'source': self.plugin_static_file('Panel.js:renderAttachmentCarouselPanel'),
-                'context': {
-                    # Provide additional context data to the panel
-                    'settings': self.get_settings_dict(),
-                    'foo': 'bar'
-                }
-            })
+    #     # Only display this panel for the 'part' target
+    #     if context.get('target_model') == 'part':
+    #         panels.append({
+    #             'key': 'attachment-carousel-panel',
+    #             'title': 'Attachment Carousel',
+    #             'description': 'Custom panel description',
+    #             'icon': 'ti:mood-smile:outline',
+    #             'source': self.plugin_static_file('Panel.js:renderAttachmentCarouselPanel'),
+    #             'context': {
+    #                 # Provide additional context data to the panel
+    #                 'settings': self.get_settings_dict(),
+    #                 'foo': 'bar'
+    #             }
+    #         })
         
-        return panels
+    #     return panels
     
 
     
